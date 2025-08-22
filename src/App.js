@@ -11,14 +11,23 @@ const App = () => {
     return <h1>{course}</h1>;
   };
 
-  const Content = ({ part, exercises }) => {
+  //Solo me va a mostrar el nombre y los ejercicios//
+  const Part = ({ nombre, ejercicios }) => {
     return (
       <p>
-        {part} - Numero de ejericios: {exercises}
+        {nombre} - Numero de ejercicios: {ejercicios}
       </p>
     );
   };
-
+  const Content = ({ part1, exercises1, part2, exercises2, part3, exercises3 }) => {
+    return (
+      <div>
+        <Part nombre={part1} ejercicios={exercises1} />
+        <Part nombre={part2} ejercicios={exercises2} />
+        <Part nombre={part3} ejercicios={exercises3} />
+      </div>
+    );
+  };
   const Total = ({ a1, a2, a3 }) => {
     return <p>Number of exercises: {a1 + a2 + a3}</p>;
   };
@@ -27,11 +36,7 @@ const App = () => {
     <div>
       <Header course={course} />
 
-      <Content part={part1} exercises={exercises1} />
-
-      <Content part={part2} exercises={exercises2} />
-
-      <Content part={part3} exercises={exercises3} />
+      <Content part1={part1} exercises1={exercises1} part2={part2} exercises2={exercises2} part3={part3} exercises3={exercises3} />
 
       <Total a1={exercises1} a2={exercises2} a3={exercises3} />
     </div>
