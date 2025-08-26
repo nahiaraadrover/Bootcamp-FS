@@ -1,28 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { useState} from "react";
-///Ejemplo de Hoop///
+import React, { useState } from "react";
 
+const App = () => {
+  const [contador, setContador] = useState(0); // inicializamos en 0
 
-const rootElement = document.getElementById("root");
-const root = ReactDOM.createRoot(rootElement);
-let contador = 0;
-
-const App = (props) => {
-    const[contador, updateContador] = useState(13)
-
-        return(
-        <div>
-
-            <button onClick={() => {console.log ("click")}}> Incrementar
-            </button>
-        </div>
-
-    )
-
+  return (
+    <div>
+      <h1>{contador}</h1>
+      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+    </div>
+  );
 };
 
 export default App;
+
 
 /*
 const refresh = () => {
