@@ -12,9 +12,13 @@ const App = () => {
   const ResetearClick=()=>{
     setContador(0)
   }
+
+
+  const esPar = contador % 2 === 0
   return (
     <div>
       <h1>{contador}</h1>
+      <p>{esPar? 'Es Par':'Es Impar'}</p>
       <button onClick={HandleClick}>Incrementar</button>
       <button onClick={ResetearClick}>Resetear</button>
     </div>
