@@ -9,7 +9,27 @@ La aplicación debe mostrar el número total de comentarios recopilados para cad
 /*(1.7: unicafe, paso 2
 Amplía tu aplicación para que muestre más estadísticas sobre los comentarios recopilados: 
 el número total de comentarios recopilados, la puntuación promedio (buena: 1, neutral: 0, mala: -1) 
-y el porcentaje de comentarios positivos. */
+y el porcentaje de comentarios positivos.
+
+1.8: unicafe, paso 3
+Refactoriza tu aplicación para que la visualización de las estadísticas se extraiga en su propio componente Statistics. El estado de la aplicación debe permanecer en el componente raíz App.
+
+
+*/
+
+const Estadisticas = ({bueno,neutral,mala}) => {
+    
+        const total = bueno + neutral + mala
+        const promedio= total/3
+        const porcentaje=(bueno/total)*100
+    return (
+    <div>
+        <p>Total:{total}</p>
+        <p>Pomedio:{promedio}</p>
+        <p>Porcentaje Comentarios Positivos:{porcentaje}%</p>
+    </div>
+     )
+}
 
 const App = () => {
   const [contador, setContador] = useState(0); // inicializamos en 0
@@ -27,7 +47,6 @@ const App = () => {
   const ResetearClick=()=>{
     setContador(0)
   }
- const total = bueno + neutral + mala
 
   const esPar = contador % 2 === 0
   return (
@@ -49,9 +68,8 @@ const App = () => {
       <p>Buenas:{bueno}</p>
       <p>Neutras:{neutral}</p>
       <p>Malas:{mala}</p>
-      <p>Total:{total}</p>
-      <p>Promedio:{(total)/3}</p>
-      <p>Porcentaje Comentarios Positivos:{(bueno/total)*100}%</p>
+
+      <Estadisticas bueno={bueno} neutral={neutral} mala={mala}/>
 
 
     </div>
