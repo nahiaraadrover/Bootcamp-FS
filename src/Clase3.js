@@ -6,11 +6,17 @@ Como la mayoría de las empresas, Unicafe recopila comentarios de sus clientes. 
 
 La aplicación debe mostrar el número total de comentarios recopilados para cada categoría.*/
 
+/*(1.7: unicafe, paso 2
+Amplía tu aplicación para que muestre más estadísticas sobre los comentarios recopilados: 
+el número total de comentarios recopilados, la puntuación promedio (buena: 1, neutral: 0, mala: -1) 
+y el porcentaje de comentarios positivos. */
+
 const App = () => {
   const [contador, setContador] = useState(0); // inicializamos en 0
   const [bueno, incrementarBueno] = useState(0);
   const [neutral, incrementarNeutral] = useState(0);
   const [mala, incrementarMala] = useState(0);
+  
 
   //Extraccion de funcion//
   const HandleClick=()=> {
@@ -21,7 +27,7 @@ const App = () => {
   const ResetearClick=()=>{
     setContador(0)
   }
-
+ const total = bueno + neutral + mala
 
   const esPar = contador % 2 === 0
   return (
@@ -43,6 +49,11 @@ const App = () => {
       <p>Buenas:{bueno}</p>
       <p>Neutras:{neutral}</p>
       <p>Malas:{mala}</p>
+      <p>Total:{total}</p>
+      <p>Promedio:{(total)/3}</p>
+      <p>Porcentaje Comentarios Positivos:{(bueno/total)*100}%</p>
+
+
     </div>
   );
 };
