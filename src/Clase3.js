@@ -3,10 +3,20 @@ import React, { useState } from "react";
 const App = () => {
   const [contador, setContador] = useState(0); // inicializamos en 0
 
+  //Extraccion de funcion//
+  const HandleClick=()=> {
+        setContador(contador + 1)
+
+  }
+
+  const ResetearClick=()=>{
+    setContador(0)
+  }
   return (
     <div>
       <h1>{contador}</h1>
-      <button onClick={() => setContador(contador + 1)}>Incrementar</button>
+      <button onClick={HandleClick}>Incrementar</button>
+      <button onClick={ResetearClick}>Resetear</button>
     </div>
   );
 };
