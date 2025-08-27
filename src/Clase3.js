@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 
 
 /*1.6: unicafe, paso 1
@@ -15,7 +15,6 @@ y el porcentaje de comentarios positivos.
 Refactoriza tu aplicación para que la visualización de las estadísticas se extraiga en su propio componente Statistics. El estado de la aplicación debe permanecer en el componente raíz App.
 
 
-*/
 
 const Estadisticas = ({bueno,neutral,mala}) => {
     
