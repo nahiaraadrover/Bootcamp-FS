@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import Note from './components/note'
+//import Note from './components/note'
 
+/*
 const App = (props) => {
   const [notes, setNotes] = useState(props.notes)
   const [newNote, setNewNote] = useState('')
@@ -41,6 +42,52 @@ const App = (props) => {
         <input value={newNote} onChange={handleNoteChange} />
         <button type="submit">save</button>
       </form>
+    </div>
+  )
+}
+*/
+
+/*2.6: La Agenda Telefónica Paso 1
+Creemos una agenda telefónica sencilla. En esta parte solo agregaremos nombres a la agenda.
+Comencemos por implementar la adición de una persona a la agenda.
+*/
+const App = () => {
+  const [persons, setPersons] = useState([
+    { name: 'Arto Hellas' }
+  ]) 
+  const [newName, setNewName] = useState('')
+
+  const handleNameChange = (event) => {
+    setNewName(event.target.value)
+  }
+
+  const addPerson = (event) => {
+    event.preventDefault() // evita que recargue la página
+    const newPerson = { name: newName }
+    setPersons(persons.concat(newPerson)) // agrega al array
+    setNewName('') // limpia el input
+  }
+
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form onSubmit={addPerson}>
+        <div>
+          name: <input 
+                  value={newName} 
+                  onChange={handleNameChange} 
+                />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
+      <ul>
+        {persons.map((person, i) => 
+          <li key={i}>{person.name}</li>
+        )}
+      </ul>
     </div>
   )
 }
